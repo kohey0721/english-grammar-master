@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>修飾語マスター ─ 大学受験対策</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf7f2;
+  --bg-card: #fff;
+  --border: #e0d5c7;
+  --text: #2d2a26;
+  --text-muted: #6b6560;
+  --s-color: #1e56a0;
+  --v-color: #b91c1c;
+  --o-color: #15803d;
+  --c-color: #c2850a;
+  --m-color: #7b2ff7;
+  --m-bg: #f3eefe;
+  --accent: #7b2ff7;
+  --shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Plus Jakarta Sans', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* Header — matches 5文型マスター */
+.header {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  border-bottom: 2px solid var(--border);
+}
+.header h1 {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.header .subtitle {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.2rem 4rem;
+}
+
+/* Hero sentence display */
+.hero {
+  margin-top: 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem 2rem 1.2rem;
+  box-shadow: var(--shadow);
+}
+.hero .pattern-label {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.05em;
+}
+#sent {
+  font-family: 'Lora', serif;
+  font-size: 1.5rem;
+  line-height: 3;
+  min-height: 3em;
+  text-align: left;
+  padding-bottom: 1.2em;
+}
+.hero .ja {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-top: 0.5rem;
+  text-align: left;
+}
+.hero .mc {
+  font-size: 0.78rem;
+  color: var(--m-color);
+  font-weight: 600;
+  margin-top: 0.2rem;
+  text-align: left;
+}
+
+/* ── Word groups: underline + label below (inline) ── */
+.wg {
+  position: relative;
+  display: inline;
+  border-bottom: 2.5px solid;
+  padding-bottom: 1px;
+}
+.wg-s { color: var(--s-color); border-color: var(--s-color); }
+.wg-v { color: var(--v-color); border-color: var(--v-color); }
+.wg-o { color: var(--o-color); border-color: var(--o-color); }
+.wg-c { color: var(--c-color); border-color: var(--c-color); }
+.wg .lb {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100% + 3px);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ── Modifier display: parenthesized, with label below ── */
+.mod {
+  position: relative;
+  display: inline;
+  color: var(--m-color);
+  animation: modSlideIn 0.4s ease both;
+}
+.mod-lb {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100% + 3px);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--m-color);
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: 0.03em;
+}
+.plain { color: var(--text); }
+
+@keyframes modSlideIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Selector panel */
+.selector-panel {
+  margin-top: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 1.8rem;
+  box-shadow: var(--shadow);
+}
+.selector-panel h3 {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.ctrl-bar {
+  display: flex;
+  gap: 0.4rem;
+  justify-content: flex-end;
+  margin-bottom: 0.8rem;
+}
+.ctrl-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background: transparent;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+.ctrl-btn:hover { background: #f5f0e8; color: var(--text); }
+
+/* Slot sections */
+.slot-section { margin-bottom: 1.2rem; }
+.slot-section:last-child { margin-bottom: 0; }
+.slot-label {
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.role-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  color: #fff;
+}
+.rb-s { background: var(--s-color); }
+.rb-o { background: var(--o-color); }
+.rb-m { background: var(--m-color); }
+
+/* Tree hierarchy */
+.tree { margin-left: 0.5rem; font-size: 0.88rem; }
+.tree-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  min-height: 2.2rem;
+  padding: 0.15rem 0;
+}
+.tree-branch {
+  color: var(--text-muted);
+  font-family: monospace;
+  font-size: 0.9rem;
+  min-width: 1.2rem;
+  user-select: none;
+  line-height: 2.2rem;
+  flex-shrink: 0;
+}
+.tree-cat {
+  font-weight: 600;
+  color: var(--text-muted);
+  min-width: 3.2em;
+  flex-shrink: 0;
+  line-height: 2.2rem;
+}
+.tree-arrow {
+  color: var(--text-muted);
+  margin-right: 0.2rem;
+  line-height: 2.2rem;
+  flex-shrink: 0;
+}
+.tree-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.tg-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.32rem 0.75rem;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.tg-btn:hover, .tg-btn:active {
+  border-color: var(--m-color);
+  color: var(--m-color);
+  background: var(--m-bg);
+}
+@media (hover: none) {
+  .tg-btn:hover { border-color: var(--border); color: var(--text); background: var(--bg); }
+  .tg-btn:active { border-color: var(--m-color); color: var(--m-color); background: var(--m-bg); }
+}
+.tg-btn.on {
+  border-color: var(--m-color);
+  background: var(--m-color);
+  color: #fff;
+}
+
+/* Tip boxes */
+.tip-box {
+  margin-top: 1.2rem;
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-left: 4px solid #c2850a;
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+.tip-box .tip-title {
+  font-weight: 700;
+  color: #92400e;
+  margin-bottom: 0.3rem;
+}
+
+/* Supp */
+.supp-section { margin-top: 2rem; }
+.supp-section h2 {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--border);
+}
+.supp-item { margin-bottom: 1.2rem; }
+.supp-item h4 { font-size: 0.88rem; margin-bottom: 0.4rem; }
+.supp-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+}
+.supp-sent {
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  line-height: 2.8;
+}
+.supp-ja { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.2rem; }
+.supp-desc { color: var(--m-color); font-size: 0.78rem; margin-top: 0.3rem; }
+
+/* Ref tables */
+.ref-section { margin-top: 2.5rem; }
+.ref-section h2 {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--border);
+}
+.ref-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-bottom: 1.2rem;
+  background: var(--bg-card);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.ref-table th {
+  background: #f5f0e8;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.ref-table td {
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid #f0ebe3;
+}
+.ref-table tr:last-child td { border-bottom: none; }
+
+/* Responsive — iPhone-first */
+@media (max-width: 640px) {
+  body { padding-bottom: env(safe-area-inset-bottom, 0); }
+  .header { padding: 1.2rem 1rem; }
+  .header h1 { font-size: 1.4rem; }
+  .header .subtitle { font-size: 0.8rem; }
+  .container { padding: 0 0 3rem; }
+
+  /* Hero: sticky at top */
+  .hero {
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    padding: 0.8rem 1rem;
+    margin-top: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  #sent { font-size: 1.1rem; line-height: 2.8; padding-bottom: 0.8em; }
+  .hero .pattern-label { font-size: 0.82rem; margin-bottom: 0.4rem; }
+  .hero .ja { font-size: 0.82rem; }
+  .hero .mc { font-size: 0.72rem; }
+
+  /* Selector panel */
+  .selector-panel { padding: 0.8rem; margin-top: 0.5rem; border-radius: 0; border-left: none; border-right: none; box-shadow: none; }
+  .selector-panel h3 { font-size: 0.95rem; margin-bottom: 0.5rem; }
+  .ctrl-bar { margin-bottom: 0.4rem; }
+  .ctrl-btn { min-height: 34px; padding: 0.35rem 0.7rem; font-size: 0.72rem; }
+
+  /* Tree: simplified */
+  .tree { margin-left: 0; }
+  .tree-row {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    min-height: auto;
+    padding: 0.25rem 0;
+  }
+  .tree-branch { display: none; }
+  .tree-arrow { display: none; }
+  .tree-cat {
+    min-width: auto;
+    font-size: 0.72rem;
+    line-height: 1;
+    background: #f0ebe3;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.15rem;
+    width: 100%;
+  }
+  .tree-buttons {
+    gap: 0.35rem;
+    width: 100%;
+    padding-left: 0.3rem;
+  }
+
+  /* Toggle buttons: touch-friendly */
+  .tg-btn {
+    font-size: 0.78rem;
+    padding: 0.45rem 0.7rem;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Slot labels */
+  .slot-label { font-size: 0.82rem; }
+  .role-badge { font-size: 0.68rem; }
+
+  /* Slot sections spacing */
+  .slot-section { margin-bottom: 0.8rem; }
+
+  /* Tip / Note boxes */
+  .tip-box { padding: 0.7rem 0.8rem; font-size: 0.8rem; margin-top: 0.6rem; }
+
+  /* Supplementary */
+  .supp-section { margin-top: 1.5rem; }
+  .supp-section h2 { font-size: 1.1rem; }
+  .supp-box { padding: 0.7rem 0.8rem; }
+  .supp-sent { font-size: 0.95rem; line-height: 2.6; }
+  .supp-item .tg-btn { min-height: 38px; }
+
+  /* Ref tables */
+  .ref-section { margin-top: 1.5rem; }
+  .ref-section h2 { font-size: 1.1rem; }
+  .ref-table { font-size: 0.76rem; }
+  .ref-table th, .ref-table td { padding: 0.4rem 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>修飾語マスター</h1>
+  <p class="subtitle">トグルで修飾語(M)を積み重ねて文の成長を体感する</p>
+</div>
+
+<div class="container">
+
+<!-- Hero -->
+<div class="hero">
+  <div class="pattern-label">SVO ─ The girl visited the city.</div>
+  <div id="sent"></div>
+  <div class="ja" id="ja"></div>
+  <div class="mc" id="mc"></div>
+</div>
+
+<!-- Controls -->
+<div class="selector-panel">
+  <h3>修飾語 M をトグルで追加する</h3>
+  <div class="ctrl-bar">
+    <button class="ctrl-btn" onclick="allOff()">全OFF</button>
+    <button class="ctrl-btn" onclick="allOn()">全ON</button>
+  </div>
+
+  <!-- S修飾 -->
+  <div class="slot-section">
+    <div class="slot-label"><span class="role-badge rb-s">S</span> girl を修飾</div>
+    <div class="tree" id="tree-s"></div>
+  </div>
+
+  <!-- O修飾 -->
+  <div class="slot-section">
+    <div class="slot-label"><span class="role-badge rb-o">O</span> city を修飾</div>
+    <div class="tree" id="tree-o"></div>
+  </div>
+
+  <!-- 文修飾 -->
+  <div class="slot-section">
+    <div class="slot-label"><span class="role-badge rb-m">M</span> 動詞・文全体を修飾</div>
+    <div class="tree" id="tree-vp"></div>
+  </div>
+</div>
+
+<div class="tip-box">
+  <div class="tip-title">ポイント</div>
+  修飾語(M)はいくら増やしても<strong>文型(SVO)は変わりません</strong>。文型を決めるのは S, V, O, C だけです。<br>
+  <strong>1語の形容詞・副詞</strong> → 名詞の前（前置修飾）。<strong>句・節（2語以上）</strong> → 名詞の後ろ（後置修飾）。
+</div>
+
+<!-- Supplementary -->
+<div class="supp-section">
+  <h2>補足パターン</h2>
+
+  <div class="supp-item">
+    <h4>① 同格の that 節</h4>
+    <div class="supp-box">
+      <div class="supp-sent" id="supp1-sent"></div>
+      <div class="supp-ja" id="supp1-ja"></div>
+      <div class="supp-desc" id="supp1-desc"></div>
+      <button class="tg-btn" id="supp1-btn" style="margin-top:0.5rem" onclick="toggleSupp(1)">同格 that</button>
+    </div>
+  </div>
+
+  <div class="supp-item">
+    <h4>② to不定詞の形容詞的用法</h4>
+    <div class="supp-box">
+      <div class="supp-sent" id="supp2-sent"></div>
+      <div class="supp-ja" id="supp2-ja"></div>
+      <div class="supp-desc" id="supp2-desc"></div>
+      <button class="tg-btn" id="supp2-btn" style="margin-top:0.5rem" onclick="toggleSupp(2)">to不定詞（形容詞的）</button>
+    </div>
+  </div>
+
+  <div class="supp-item">
+    <h4>③ so ... that 構文（結果）</h4>
+    <div class="supp-box">
+      <div class="supp-sent" id="supp3-sent"></div>
+      <div class="supp-ja" id="supp3-ja"></div>
+      <div class="supp-desc" id="supp3-desc"></div>
+      <button class="tg-btn" id="supp3-btn" style="margin-top:0.5rem" onclick="toggleSupp(3)">so ... that</button>
+    </div>
+  </div>
+
+  <div class="tip-box" style="margin-top:0.5rem">
+    <div class="tip-title">同格 that と関係代名詞 that の見分け方</div>
+    <strong>同格 that</strong>：that 節の中が完全な文。先行詞は抽象名詞（news, fact, idea 等）。<br>
+    <strong>関係代名詞 that</strong>：that 節の中に主語や目的語の欠けがある。
+  </div>
+</div>
+
+<!-- Reference -->
+<div class="ref-section">
+  <h2>句 と 節 の分類表</h2>
+  <table class="ref-table">
+    <tr><th>分類</th><th>種類</th><th>特徴</th><th>例</th></tr>
+    <tr><td rowspan="2"><strong>単語</strong></td><td>形容詞</td><td>名詞を前から修飾</td><td>the (<span style="color:var(--m-color)">young</span>) girl</td></tr>
+    <tr><td>副詞</td><td>動詞・文を修飾</td><td>(<span style="color:var(--m-color)">excitedly</span>) visited</td></tr>
+    <tr><td rowspan="5"><strong>句</strong><br><small style="color:var(--text-muted)">S+V なし</small></td><td>前置詞句</td><td>前置詞 + 名詞</td><td>girl (<span style="color:var(--m-color)">from Japan</span>)</td></tr>
+    <tr><td>現在分詞句</td><td>V-ing ...</td><td>girl (<span style="color:var(--m-color)">studying abroad</span>)</td></tr>
+    <tr><td>過去分詞句</td><td>V-ed ...</td><td>city (<span style="color:var(--m-color)">known for ...</span>)</td></tr>
+    <tr><td>to不定詞句</td><td>to V ...</td><td>visited (<span style="color:var(--m-color)">to learn ...</span>)</td></tr>
+    <tr><td>with句</td><td>with O + C</td><td>(<span style="color:var(--m-color)">with camera in hand</span>)</td></tr>
+    <tr><td rowspan="5"><strong>節</strong><br><small style="color:var(--text-muted)">S+V あり</small></td><td>関係代名詞節</td><td>who/that + S+V</td><td>girl (<span style="color:var(--m-color)">who lives ...</span>)</td></tr>
+    <tr><td>関係副詞節</td><td>where/when + S+V</td><td>city (<span style="color:var(--m-color)">where she was born</span>)</td></tr>
+    <tr><td>同格 that 節</td><td>名詞の内容を説明</td><td>news (<span style="color:var(--m-color)">that he won</span>)</td></tr>
+    <tr><td>副詞節</td><td>when/because/if + S+V</td><td>(<span style="color:var(--m-color)">when she was 12</span>)</td></tr>
+    <tr><td>分詞構文</td><td>V-ing ..., S+V</td><td>(<span style="color:var(--m-color)">Traveling alone,</span>) she ...</td></tr>
+  </table>
+  <div class="tip-box" style="margin-top:0.5rem">
+    <div class="tip-title">句と節の見分け方</div>
+    そのかたまりの中に <strong>S+V（主語＋動詞）</strong> があるかどうか。あれば<strong>節</strong>、なければ<strong>句</strong>。
+  </div>
+</div>
+
+</div>
+
+<script>
+// ════════════════════════════════════════
+// DATA
+// ════════════════════════════════════════
+var mods = [
+  {id:'adj_s',  grp:'s', cat:'単語',label:'形容詞 young',        pos:'s_pre', text:'young',                            tag:'形容詞',    ja:'若い'},
+  {id:'prep_s', grp:'s', cat:'句',  label:'前置詞句 from Japan',  pos:'s_post',text:'from Japan',                       tag:'前置詞句',  ja:'日本出身の'},
+  {id:'ptcp_s', grp:'s', cat:'句',  label:'現在分詞句',           pos:'s_post',text:'studying abroad',                  tag:'現在分詞句',ja:'海外留学中の'},
+  {id:'rel_s',  grp:'s', cat:'節',  label:'関係代名詞 who',       pos:'s_post',text:'who lives next door',              tag:'関係代名詞',ja:'隣に住んでいる'},
+  {id:'adj_o',  grp:'o', cat:'単語',label:'形容詞 beautiful',     pos:'o_pre', text:'beautiful',                        tag:'形容詞',    ja:'美しい'},
+  {id:'prep_o', grp:'o', cat:'句',  label:'前置詞句 by the sea',  pos:'o_post',text:'by the sea',                       tag:'前置詞句',  ja:'海沿いの'},
+  {id:'ptcp_o', grp:'o', cat:'句',  label:'過去分詞句',           pos:'o_post',text:'known for its history',            tag:'過去分詞句',ja:'歴史で知られる'},
+  {id:'rel_o',  grp:'o', cat:'節',  label:'関係代名詞 that',      pos:'o_post',text:'that she had always wanted to see',tag:'関係代名詞',ja:'ずっと見たかった',  ex:'rel_adv'},
+  {id:'rel_adv',grp:'o', cat:'節',  label:'関係副詞 where',       pos:'o_post',text:'where her grandmother was born',   tag:'関係副詞',  ja:'祖母が生まれた',  ex:'rel_o'},
+  {id:'adv',       grp:'vp',cat:'単語',label:'副詞 excitedly',          pos:'v_pre',  text:'excitedly',                         tag:'副詞',      ja:'ワクワクしながら'},
+  {id:'prep_adv',  grp:'vp',cat:'句',  label:'前置詞句（時）',          pos:'vp_post',text:'during summer vacation',              tag:'前置詞句',  ja:'夏休みの間に'},
+  {id:'to_inf',    grp:'vp',cat:'句',  label:'to不定詞（目的）',        pos:'vp_post',text:'to learn about its culture',          tag:'to不定詞',  ja:'文化を学ぶために'},
+  {id:'part_con',  grp:'vp',cat:'句',  label:'分詞構文',                pos:'pre',    text:'Traveling alone for the first time',  tag:'分詞構文',  ja:'初めて一人旅をして'},
+  {id:'with_cl',   grp:'vp',cat:'句',  label:'with句（付帯状況）',      pos:'vp_post',text:'with her camera in hand',             tag:'with句',    ja:'カメラを手に'},
+  {id:'when_cl',   grp:'vp',cat:'節',  label:'副詞節 when（時）',       pos:'vp_post',text:'when she was twelve',                 tag:'when節',    ja:'12歳のとき'},
+  {id:'because_cl',grp:'vp',cat:'節',  label:'副詞節 because（理由）',  pos:'vp_post',text:'because she loved its history',       tag:'because節', ja:'歴史が好きだったので'},
+  {id:'if_cl',     grp:'vp',cat:'節',  label:'副詞節 if（条件）',       pos:'vp_post',text:'if her parents allowed it',           tag:'if節',      ja:'両親が許したら'},
+  {id:'although_cl',grp:'vp',cat:'節', label:'副詞節 although（譲歩）', pos:'pre',    text:'Although it was raining',             tag:'although節',ja:'雨だったが'},
+];
+
+var st = {};
+var prevSt = {};
+mods.forEach(function(m){ st[m.id] = false; prevSt[m.id] = false; });
+var suppSt = {1:false, 2:false, 3:false};
+
+// ════════════════════════════════════════
+// BUILD TREE BUTTONS
+// ════════════════════════════════════════
+function buildTree(grp, containerId) {
+  var el = document.getElementById(containerId);
+  var cats = ['単語','句','節'];
+  for (var ci = 0; ci < cats.length; ci++) {
+    var cat = cats[ci];
+    var items = mods.filter(function(m){ return m.grp === grp && m.cat === cat; });
+    if (!items.length) continue;
+    var isLast = true;
+    for (var j = ci+1; j < cats.length; j++) {
+      if (mods.filter(function(m){ return m.grp === grp && m.cat === cats[j]; }).length > 0) { isLast = false; break; }
+    }
+    var row = document.createElement('div');
+    row.className = 'tree-row';
+    row.innerHTML = '<span class="tree-branch">' + (isLast ? '└─' : '├─') + '</span>'
+      + '<span class="tree-cat">' + cat + '</span>'
+      + '<span class="tree-arrow">&#9656;</span>';
+    var btns = document.createElement('div');
+    btns.className = 'tree-buttons';
+    for (var i = 0; i < items.length; i++) {
+      (function(m) {
+        var btn = document.createElement('button');
+        btn.className = 'tg-btn';
+        btn.textContent = m.label;
+        btn.id = 'btn-' + m.id;
+        btn.onclick = function() {
+          st[m.id] = !st[m.id];
+          if (st[m.id] && m.ex) { st[m.ex] = false; document.getElementById('btn-'+m.ex).classList.remove('on'); }
+          btn.classList.toggle('on', st[m.id]);
+          render();
+        };
+        btns.appendChild(btn);
+      })(items[i]);
+    }
+    row.appendChild(btns);
+    el.appendChild(row);
+  }
+}
+buildTree('s', 'tree-s');
+buildTree('o', 'tree-o');
+buildTree('vp','tree-vp');
+
+// ════════════════════════════════════════
+// RENDER
+// ════════════════════════════════════════
+function wg(text, role, label) {
+  return '<span class="wg wg-' + role + '">' + text + '<span class="lb">' + label + '</span></span>';
+}
+
+function byPos(pos) {
+  var r = [];
+  for (var i = 0; i < mods.length; i++) {
+    if (st[mods[i].id] && mods[i].pos === pos) r.push(mods[i]);
+  }
+  return r;
+}
+
+function modSpan(m) {
+  var isNew = st[m.id] && !prevSt[m.id];
+  var cls = isNew ? ' style="animation-delay:0.05s"' : '';
+  return '<span class="mod"' + cls + '>(' + m.text + ')<span class="mod-lb">' + m.tag + '</span></span>';
+}
+
+function render() {
+  var pre     = byPos('pre');
+  var s_pre   = byPos('s_pre');
+  var s_post  = byPos('s_post');
+  var v_pre   = byPos('v_pre');
+  var o_pre   = byPos('o_pre');
+  var o_post  = byPos('o_post');
+  var vp_post = byPos('vp_post');
+
+  var h = '';
+
+  // Pre-sentence
+  for (var i = 0; i < pre.length; i++) { h += modSpan(pre[i]) + '<span class="plain">, </span>'; }
+
+  // S
+  var art = pre.length > 0 ? 'the ' : 'The ';
+  h += '<span class="plain">' + art + '</span>';
+  for (var i = 0; i < s_pre.length; i++) { h += modSpan(s_pre[i]) + ' '; }
+  h += wg('girl', 's', 'S');
+  for (var i = 0; i < s_post.length; i++) { h += ' ' + modSpan(s_post[i]); }
+  h += ' ';
+
+  // V
+  for (var i = 0; i < v_pre.length; i++) { h += modSpan(v_pre[i]) + ' '; }
+  h += wg('visited', 'v', 'V') + ' ';
+
+  // O
+  h += '<span class="plain">the </span>';
+  for (var i = 0; i < o_pre.length; i++) { h += modSpan(o_pre[i]) + ' '; }
+  h += wg('city', 'o', 'O');
+  for (var i = 0; i < o_post.length; i++) { h += ' ' + modSpan(o_post[i]); }
+
+  // VP post
+  for (var i = 0; i < vp_post.length; i++) { h += ' ' + modSpan(vp_post[i]); }
+
+  h += '<span class="plain" style="vertical-align:top">.</span>';
+
+  document.getElementById('sent').innerHTML = h;
+
+  // Japanese
+  var j = '';
+  if (pre.length) j += pre.map(function(m){return m.ja;}).join('、') + '、';
+  var sm = s_pre.concat(s_post).map(function(m){return m.ja;});
+  j += (sm.length ? sm.join('、') + '' : 'その') + '少女が';
+  if (v_pre.length) j += v_pre.map(function(m){return m.ja;}).join('、') + '、';
+  if (vp_post.length) j += vp_post.map(function(m){return m.ja;}).join('、') + '、';
+  var om = o_pre.concat(o_post).map(function(m){return m.ja;});
+  j += (om.length ? om.join('、') + '' : 'その') + '街を訪れた。';
+  document.getElementById('ja').textContent = j;
+
+  var cnt = 0;
+  for (var k in st) { if (st[k]) cnt++; }
+  document.getElementById('mc').textContent = cnt > 0 ? '修飾語 ' + cnt + ' 個 ON' : '';
+
+  // Save state for next diff
+  for (var k in st) prevSt[k] = st[k];
+}
+
+function allOff() {
+  for (var k in st) st[k] = false;
+  document.querySelectorAll('.tg-btn.on').forEach(function(b){ b.classList.remove('on'); });
+  render();
+}
+
+function allOn() {
+  for (var i = 0; i < mods.length; i++) st[mods[i].id] = true;
+  for (var i = 0; i < mods.length; i++) {
+    if (st[mods[i].id] && mods[i].ex && st[mods[i].ex]) st[mods[i].ex] = false;
+  }
+  document.querySelectorAll('.selector-panel .tg-btn').forEach(function(b) {
+    var mid = b.id.replace('btn-','');
+    b.classList.toggle('on', !!st[mid]);
+  });
+  render();
+}
+
+render();
+
+// ════════════════════════════════════════
+// SUPPLEMENTARY
+// ════════════════════════════════════════
+function suppWg(text, role, label) { return wg(text, role, label); }
+function suppMod(text, tag) { return '<span class="mod">(' + text + ')<span class="mod-lb">' + tag + '</span></span>'; }
+
+function renderSupp(n) {
+  var isOn = suppSt[n];
+  var sentEl = document.getElementById('supp'+n+'-sent');
+  var jaEl = document.getElementById('supp'+n+'-ja');
+  var descEl = document.getElementById('supp'+n+'-desc');
+  var btnEl = document.getElementById('supp'+n+'-btn');
+
+  if (n === 1) {
+    if (isOn) {
+      sentEl.innerHTML = suppWg('I','s','S') + ' ' + suppWg('heard','v','V') + ' ' + suppWg('the news','o','O') + ' ' + suppMod('that he had passed the exam','同格that') + '<span class="plain">.</span>';
+      jaEl.textContent = '私は彼が試験に合格したというニュースを聞いた。';
+      descEl.textContent = 'that節内が完全文 → 同格。欠けがある → 関係代名詞。';
+    } else {
+      sentEl.innerHTML = suppWg('I','s','S') + ' ' + suppWg('heard','v','V') + ' ' + suppWg('the news','o','O') + '<span class="plain">.</span>';
+      jaEl.textContent = '私はそのニュースを聞いた。';
+      descEl.textContent = '';
+    }
+  }
+  if (n === 2) {
+    if (isOn) {
+      sentEl.innerHTML = suppWg('She','s','S') + ' ' + suppWg('needs','v','V') + ' ' + suppWg('time','o','O') + ' ' + suppMod('to think about it','to不定詞') + '<span class="plain">.</span>';
+      jaEl.textContent = '彼女はそれについて考える時間が必要だ。';
+      descEl.textContent = 'to不定詞が名詞 time を後ろから修飾「〜するための」。';
+    } else {
+      sentEl.innerHTML = suppWg('She','s','S') + ' ' + suppWg('needs','v','V') + ' ' + suppWg('time','o','O') + '<span class="plain">.</span>';
+      jaEl.textContent = '彼女は時間が必要だ。';
+      descEl.textContent = '';
+    }
+  }
+  if (n === 3) {
+    if (isOn) {
+      sentEl.innerHTML = suppWg('She','s','S') + ' ' + suppWg('was','v','V') + ' ' + suppMod('so','so') + ' ' + suppWg('tired','o','C') + ' ' + suppMod('that she fell asleep immediately','that節(結果)') + '<span class="plain">.</span>';
+      jaEl.textContent = '彼女はとても疲れていたのですぐに眠ってしまった。';
+      descEl.textContent = 'so + 形容詞 + that S+V「とても〜なので…」。';
+    } else {
+      sentEl.innerHTML = suppWg('She','s','S') + ' ' + suppWg('was','v','V') + ' ' + suppWg('tired','o','C') + '<span class="plain">.</span>';
+      jaEl.textContent = '彼女は疲れていた。';
+      descEl.textContent = '';
+    }
+  }
+  btnEl.classList.toggle('on', isOn);
+  btnEl.textContent = isOn ? btnEl.textContent.replace(' ×','') + ' ×' : btnEl.textContent.replace(' ×','');
+}
+
+function toggleSupp(n) {
+  suppSt[n] = !suppSt[n];
+  renderSupp(n);
+}
+
+renderSupp(1);
+renderSupp(2);
+renderSupp(3);
+</script>
+</body>
+</html>

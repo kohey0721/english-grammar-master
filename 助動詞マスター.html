@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>助動詞マスター ─ 大学受験対策</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf7f2;
+  --bg-card: #fff;
+  --border: #e0d5c7;
+  --text: #2d2a26;
+  --text-muted: #6b6560;
+  --s-color: #1e56a0;
+  --v-color: #b91c1c;
+  --o-color: #15803d;
+  --c-color: #c2850a;
+  --m-color: #7b2ff7;
+  --aux-color: #0e7490;
+  --aux-bg: #e0f7fa;
+  --accent: #0e7490;
+  --shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Plus Jakarta Sans', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.header {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  border-bottom: 2px solid var(--border);
+}
+.header h1 {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.header .subtitle {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.2rem 4rem;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0;
+  margin-top: 2rem;
+  border-bottom: 2px solid var(--border);
+  overflow-x: auto;
+}
+.tab-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.7rem 1.1rem;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+}
+.tab-btn:hover { color: var(--text); background: rgba(0,0,0,0.02); }
+.tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* Hero */
+.hero {
+  margin-top: 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  text-align: left;
+  box-shadow: var(--shadow);
+}
+.hero .pattern-label {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+}
+.hero .sentence {
+  font-family: 'Lora', serif;
+  font-size: 1.5rem;
+  line-height: 2.8;
+  margin-bottom: 0.5rem;
+  padding-bottom: 1em;
+}
+.hero .ja {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+.hero .note-inline {
+  font-size: 0.82rem;
+  color: #a16207;
+  margin-top: 0.4rem;
+  font-weight: 500;
+}
+
+/* Word groups */
+.wg {
+  position: relative;
+  display: inline;
+  border-bottom: 2.5px solid;
+  padding-bottom: 1px;
+}
+.wg .lb {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100% + 3px);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.wg-s { color: var(--s-color); border-color: var(--s-color); }
+.wg-v { color: var(--v-color); border-color: var(--v-color); }
+.wg-o { color: var(--o-color); border-color: var(--o-color); }
+.wg-c { color: var(--c-color); border-color: var(--c-color); }
+.wg-aux { color: var(--aux-color); border-color: var(--aux-color); }
+.mod-part {
+  position: relative;
+  display: inline;
+  color: var(--m-color);
+}
+.mod-lb {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100% + 3px);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--m-color);
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: 0.03em;
+}
+
+.wg-changed { animation: wgFade 0.8s ease; }
+@keyframes wgFade { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+/* Selector panel */
+.selector-panel {
+  margin-top: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 1.8rem;
+  box-shadow: var(--shadow);
+}
+.selector-panel h3 {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.slot-section { margin-bottom: 1rem; }
+.slot-section:last-child { margin-bottom: 0; }
+.slot-label {
+  font-weight: 600;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.role-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  color: #fff;
+  background: var(--aux-color);
+}
+
+/* Tree */
+.tree { margin-left: 0.5rem; font-size: 0.88rem; }
+.tree-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  min-height: 2.2rem;
+  padding: 0.15rem 0;
+}
+.tree-branch {
+  color: var(--text-muted);
+  font-family: monospace;
+  font-size: 0.9rem;
+  min-width: 1.2rem;
+  user-select: none;
+  line-height: 2.2rem;
+  flex-shrink: 0;
+}
+.tree-cat {
+  font-weight: 600;
+  color: var(--text-muted);
+  min-width: 5em;
+  flex-shrink: 0;
+  line-height: 2.2rem;
+  font-size: 0.82rem;
+}
+.tree-arrow {
+  color: var(--text-muted);
+  margin-right: 0.2rem;
+  line-height: 2.2rem;
+  flex-shrink: 0;
+}
+.tree-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+.type-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.32rem 0.75rem;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.type-btn:hover, .type-btn:active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--aux-bg);
+}
+@media (hover: none) {
+  .type-btn:hover { border-color: var(--border); color: var(--text); background: var(--bg); }
+  .type-btn:active { border-color: var(--accent); color: var(--accent); background: var(--aux-bg); }
+}
+.type-btn.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+/* Tip boxes */
+.tip-box {
+  margin-top: 1.2rem;
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-left: 4px solid #c2850a;
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  font-size: 0.86rem;
+  line-height: 1.7;
+}
+.tip-box .tip-title {
+  font-weight: 700;
+  color: #92400e;
+  margin-bottom: 0.3rem;
+}
+
+/* Panel visibility */
+.pattern-panel { display: none; }
+.pattern-panel.active { display: block; }
+
+/* Ref tables */
+.ref-section { margin-top: 2.5rem; }
+.ref-section h2 {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--border);
+}
+.ref-section h3 {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.7rem;
+}
+.ref-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  margin-bottom: 1.2rem;
+  background: var(--bg-card);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.ref-table th {
+  background: #f5f0e8;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.ref-table td {
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid #f0ebe3;
+}
+.ref-table tr:last-child td { border-bottom: none; }
+.ref-table code {
+  font-family: 'Lora', serif;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--aux-color);
+}
+
+/* Responsive — iPhone-first */
+@media (max-width: 640px) {
+  body { padding-bottom: env(safe-area-inset-bottom, 0); }
+  .header { padding: 1.2rem 1rem; }
+  .header h1 { font-size: 1.4rem; }
+  .header .subtitle { font-size: 0.8rem; }
+  .container { padding: 0 0 3rem; }
+
+  /* Tabs: sticky at top, horizontal scroll */
+  .tabs {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    gap: 0;
+    margin-top: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 0.3rem;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    padding: 0.55rem 0.65rem;
+    font-size: 0.76rem;
+    flex-shrink: 0;
+    min-height: 38px;
+  }
+
+  /* Hero: sticky below tabs */
+  .hero {
+    position: sticky;
+    top: 42px;
+    z-index: 90;
+    padding: 0.8rem 1rem;
+    margin-top: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .hero .sentence { font-size: 1.15rem; line-height: 2.6; padding-bottom: 0.8em; margin-bottom: 0.3rem; }
+  .hero .pattern-label { font-size: 0.8rem; margin-bottom: 0.3rem; }
+  .hero .ja { font-size: 0.82rem; }
+  .hero .note-inline { font-size: 0.76rem; }
+
+  /* Selector panel */
+  .selector-panel { padding: 0.8rem; margin-top: 0.5rem; border-radius: 0; border-left: none; border-right: none; box-shadow: none; }
+  .selector-panel h3 { font-size: 0.95rem; margin-bottom: 0.5rem; }
+
+  /* Tree: simplified for mobile */
+  .tree { margin-left: 0; }
+  .tree-row {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    min-height: auto;
+    padding: 0.25rem 0;
+  }
+  .tree-branch { display: none; }
+  .tree-arrow { display: none; }
+  .tree-cat {
+    min-width: auto;
+    font-size: 0.72rem;
+    line-height: 1;
+    background: #e0f2f1;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.15rem;
+    width: 100%;
+  }
+  .tree-buttons {
+    gap: 0.35rem;
+    width: 100%;
+    padding-left: 0.3rem;
+  }
+
+  /* Buttons: touch-friendly */
+  .type-btn {
+    font-size: 0.78rem;
+    padding: 0.45rem 0.7rem;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Slot labels */
+  .slot-label { font-size: 0.82rem; }
+  .role-badge { font-size: 0.68rem; }
+
+  /* Tip boxes */
+  .tip-box { padding: 0.7rem 0.8rem; font-size: 0.8rem; margin-top: 0.6rem; }
+
+  /* Ref tables */
+  .ref-section { margin-top: 1.5rem; }
+  .ref-section h2 { font-size: 1.1rem; }
+  .ref-section h3 { font-size: 0.95rem; }
+  .ref-table { font-size: 0.74rem; }
+  .ref-table th, .ref-table td { padding: 0.4rem 0.45rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>助動詞マスター</h1>
+  <p class="subtitle">法助動詞と準助動詞を意味グループ別に整理する</p>
+</div>
+
+<div class="container">
+
+<div class="tabs" id="tabs"></div>
+
+<div class="hero">
+  <div class="pattern-label" id="heroLabel"></div>
+  <div class="sentence" id="heroSentence"></div>
+  <div class="ja" id="heroJa"></div>
+  <div class="note-inline" id="heroNote"></div>
+</div>
+
+<!-- Panels generated by JS -->
+<div id="panels"></div>
+
+<!-- Reference -->
+<div class="ref-section">
+  <h2>参照表</h2>
+
+  <h3>1. 助動詞の確信度（推量）</h3>
+  <table class="ref-table">
+    <tr><th>確信度</th><th>肯定</th><th>否定</th></tr>
+    <tr><td>100%（事実）</td><td>─</td><td>─</td></tr>
+    <tr><td>95%（確信）</td><td><code>must</code> 〜に違いない</td><td><code>can't</code> 〜のはずがない</td></tr>
+    <tr><td>80%（当然）</td><td><code>should / ought to</code> 〜のはずだ</td><td><code>shouldn't</code> 〜のはずがない</td></tr>
+    <tr><td>70%</td><td><code>will</code> 〜だろう</td><td><code>won't</code> 〜ないだろう</td></tr>
+    <tr><td>50%</td><td><code>may</code> 〜かもしれない</td><td><code>may not</code> 〜ないかもしれない</td></tr>
+    <tr><td>30%</td><td><code>might / could</code> 〜かもしれない</td><td><code>might not</code> 〜ないかもしれない</td></tr>
+  </table>
+
+  <h3>2. must vs have to（否定の違い）</h3>
+  <table class="ref-table">
+    <tr><th>形</th><th>意味</th><th>例</th></tr>
+    <tr><td><code>must not</code></td><td>禁止「〜してはならない」</td><td>You must not run here. ここで走ってはいけない。</td></tr>
+    <tr><td><code>don't have to</code></td><td>不要「〜する必要はない」</td><td>You don't have to run. 走る必要はない。</td></tr>
+  </table>
+
+  <h3>3. can vs be able to</h3>
+  <table class="ref-table">
+    <tr><th>場面</th><th>can</th><th>be able to</th></tr>
+    <tr><td>現在の一般的能力</td><td>○ I can swim.</td><td>○ I am able to swim.</td></tr>
+    <tr><td>過去の一般的能力</td><td>○ I could swim.</td><td>○ I was able to swim.</td></tr>
+    <tr><td>過去の具体的達成</td><td>✕</td><td>○ I was able to escape.（逃げることができた）</td></tr>
+    <tr><td>助動詞の後ろ</td><td>✕</td><td>○ I will be able to swim.</td></tr>
+  </table>
+
+  <h3>4. will vs be going to</h3>
+  <table class="ref-table">
+    <tr><th></th><th>will</th><th>be going to</th></tr>
+    <tr><td>その場の決定</td><td>○ I'll help you.</td><td>✕</td></tr>
+    <tr><td>以前からの予定</td><td>△</td><td>○ I'm going to visit Kyoto.</td></tr>
+    <tr><td>根拠のある予測</td><td>△</td><td>○ It's going to rain.（雲を見て）</td></tr>
+    <tr><td>単純な推測</td><td>○ It will rain tomorrow.</td><td>△</td></tr>
+  </table>
+
+  <h3>5. used to vs would（過去の習慣）</h3>
+  <table class="ref-table">
+    <tr><th></th><th>used to</th><th>would</th></tr>
+    <tr><td>過去の習慣的動作</td><td>○</td><td>○</td></tr>
+    <tr><td>過去の状態</td><td>○ I used to live in Tokyo.</td><td>✕（状態動詞には使えない）</td></tr>
+    <tr><td>今との対比</td><td>○（今はもう違う含意）</td><td>△（対比は弱い）</td></tr>
+  </table>
+
+  <h3>6. 法助動詞 vs 準助動詞</h3>
+  <table class="ref-table">
+    <tr><th>特徴</th><th>法助動詞</th><th>準助動詞</th></tr>
+    <tr><td>形</td><td>1語（can, must, will …）</td><td>句（have to, be able to …）</td></tr>
+    <tr><td>後ろの動詞</td><td>原形不定詞</td><td>to不定詞（多くの場合）</td></tr>
+    <tr><td>否定</td><td>助動詞 + not</td><td>do not + 動詞 / be + not …</td></tr>
+    <tr><td>疑問</td><td>助動詞を前に出す</td><td>Do/Does/Is … ?</td></tr>
+    <tr><td>時制変化</td><td>限定的（can→could）</td><td>自由（has to, had to, will have to …）</td></tr>
+    <tr><td>重ね使い</td><td>✕ 2つ並べられない</td><td>○ will have to, might be able to</td></tr>
+  </table>
+</div>
+
+</div>
+
+<script>
+// ════════════════════════════════════════
+// DATA
+// ════════════════════════════════════════
+
+var groups = [
+  {
+    id: 'ability', label: '能力',
+    items: [
+      {id:'can',label:'can',cat:'法助動詞',s:'She',aux:'can',v:'speak',o:'English',ja:'彼女は英語を話せる。',isDefault:true},
+      {id:'could',label:'could',cat:'法助動詞',s:'She',aux:'could',v:'speak',o:'English',m:'when she was five',mt:'副詞節',ja:'彼女は5歳のとき英語を話せた。',note:'過去の一般的な能力を表す'},
+      {id:'be_able_to',label:'be able to',cat:'準助動詞',s:'She',aux:'is able to',v:'speak',o:'English',ja:'彼女は英語を話すことができる。',note:'具体的達成（過去）や助動詞の後ろではbe able toを使う'},
+    ]
+  },
+  {
+    id: 'permission', label: '許可',
+    items: [
+      {id:'can_p',label:'can',cat:'法助動詞',s:'You',aux:'can',v:'use',o:'my pen',ja:'私のペンを使っていいよ。',isDefault:true,note:'口語的で日常的な許可'},
+      {id:'may_p',label:'may',cat:'法助動詞',s:'You',aux:'may',v:'leave',m:'now',mt:'副詞',ja:'もう帰ってよろしい。',note:'フォーマルな許可。目上→目下'},
+      {id:'be_allowed',label:'be allowed to',cat:'準助動詞',s:'You',aux:'are allowed to',v:'use',o:'a dictionary',ja:'辞書を使うことが許されている。',note:'ルール・規則としての許可'},
+    ]
+  },
+  {
+    id: 'obligation', label: '義務・必要',
+    items: [
+      {id:'must',label:'must',cat:'法助動詞',s:'You',aux:'must',v:'study',m:'hard',mt:'副詞',ja:'一生懸命勉強しなければならない。',isDefault:true,note:'話し手の強い主観的義務感'},
+      {id:'have_to',label:'have to',cat:'準助動詞',s:'You',aux:'have to',v:'study',m:'hard',mt:'副詞',ja:'一生懸命勉強しなければならない。',note:'外的な事情・規則による義務。否定形 don\'t have to = 不要'},
+      {id:'should',label:'should',cat:'法助動詞',s:'You',aux:'should',v:'study',m:'hard',mt:'副詞',ja:'一生懸命勉強すべきだ。',note:'義務・助言（mustより弱い）'},
+      {id:'ought_to',label:'ought to',cat:'準助動詞',s:'You',aux:'ought to',v:'study',m:'hard',mt:'副詞',ja:'一生懸命勉強すべきだ。',note:'shouldとほぼ同義。やや硬い表現'},
+      {id:'need_to',label:'need to',cat:'準助動詞',s:'You',aux:'need to',v:'study',m:'hard',mt:'副詞',ja:'一生懸命勉強する必要がある。',note:'必要性を客観的に述べる'},
+      {id:'had_better',label:'had better',cat:'準助動詞',s:'You',aux:'had better',v:'study',m:'hard',mt:'副詞',ja:'一生懸命勉強したほうがいい。',note:'警告のニュアンス。「さもないと…」の含みがある'},
+    ]
+  },
+  {
+    id: 'deduction', label: '推量',
+    items: [
+      {id:'must_d',label:'must',cat:'法助動詞',s:'She',aux:'must',v:'be',c:'tired',ja:'彼女は疲れているに違いない。',isDefault:true,note:'確信度95%。強い確信'},
+      {id:'should_d',label:'should',cat:'法助動詞',s:'She',aux:'should',v:'be',m:'home by now',mt:'副詞句',ja:'彼女はもう家にいるはずだ。',note:'確信度80%。当然の推測'},
+      {id:'will_d',label:'will',cat:'法助動詞',s:'That',aux:'will',v:'be',c:'John',m:'at the door',mt:'前置詞句',ja:'ドアのところにいるのはジョンだろう。',note:'確信度70%'},
+      {id:'may_d',label:'may',cat:'法助動詞',s:'She',aux:'may',v:'be',c:'tired',ja:'彼女は疲れているかもしれない。',note:'確信度50%'},
+      {id:'might_d',label:'might',cat:'法助動詞',s:'She',aux:'might',v:'be',c:'tired',ja:'彼女は疲れているかもしれない。',note:'確信度30%。mayより低い'},
+      {id:'could_d',label:'could',cat:'法助動詞',s:'She',aux:'could',v:'be',c:'tired',ja:'彼女は疲れている可能性がある。',note:'確信度30%。理論上の可能性'},
+      {id:'cant_d',label:'can\'t',cat:'法助動詞',s:'She',aux:'can\'t',v:'be',c:'tired',ja:'彼女が疲れているはずがない。',note:'確信度95%の否定。強い否定的確信'},
+    ]
+  },
+  {
+    id: 'will_future', label: '意志・未来',
+    items: [
+      {id:'will_f',label:'will',cat:'法助動詞',s:'I',aux:'will',v:'help',o:'you',ja:'あなたを手伝いましょう。',isDefault:true,note:'その場での意志決定・申し出'},
+      {id:'would_f',label:'would',cat:'法助動詞',s:'you',aux:'Would',v:'help',o:'me',q:true,ja:'手伝っていただけますか。',note:'丁寧な依頼。will の丁寧形'},
+      {id:'shall_f',label:'shall',cat:'法助動詞',s:'I',aux:'Shall',v:'open',o:'the window',q:true,ja:'窓を開けましょうか。',note:'申し出・提案（Shall I/we …?）'},
+      {id:'be_going',label:'be going to',cat:'準助動詞',s:'I',aux:'am going to',v:'study',m:'abroad',mt:'副詞',ja:'留学するつもりだ。',note:'以前からの計画・根拠のある予測'},
+    ]
+  },
+  {
+    id: 'habit', label: '習慣・傾向',
+    items: [
+      {id:'used_to',label:'used to',cat:'準助動詞',s:'I',aux:'used to',v:'play',o:'tennis',ja:'以前はテニスをしていた。',isDefault:true,note:'過去の習慣・状態（今はもう違う）'},
+      {id:'would_h',label:'would',cat:'法助動詞',s:'I',aux:'would',mp:'often',mpt:'副詞',v:'go fishing',m:'as a child',mt:'前置詞句',ja:'子供の頃よく釣りに行ったものだ。',note:'過去の習慣的動作のみ（状態動詞は不可）'},
+      {id:'tend_to',label:'tend to',cat:'準助動詞',s:'She',aux:'tends to',v:'be',c:'late',ja:'彼女は遅刻しがちだ。',note:'現在の傾向「〜しがちだ」'},
+    ]
+  },
+  {
+    id: 'desire', label: '願望',
+    items: [
+      {id:'want_to',label:'want to',cat:'準助動詞',s:'I',aux:'want to',v:'travel',m:'abroad',mt:'副詞',ja:'海外旅行がしたい。',isDefault:true},
+      {id:'would_like',label:'would like to',cat:'準助動詞',s:'I',aux:'would like to',v:'travel',m:'abroad',mt:'副詞',ja:'海外旅行がしたいのですが。',note:'want toの丁寧形。面接・フォーマルな場面で使う'},
+      {id:'hope_to',label:'hope to',cat:'準助動詞',s:'I',aux:'hope to',v:'see',o:'you',m:'again',mt:'副詞',ja:'また会えることを願っている。',note:'実現の可能性がある願望'},
+      {id:'wish_to',label:'wish to',cat:'準助動詞',s:'I',aux:'wish to',v:'make',o:'a complaint',ja:'苦情を申し上げたい。',note:'非常にフォーマル。want toの最も丁寧な形'},
+    ]
+  },
+  {
+    id: 'appearance', label: '外見・推測',
+    items: [
+      {id:'seem_to',label:'seem to',cat:'準助動詞',s:'She',aux:'seems to',v:'be',c:'happy',ja:'彼女は幸せそうだ。',isDefault:true,note:'外見から判断する推測「〜のようだ」'},
+      {id:'appear_to',label:'appear to',cat:'準助動詞',s:'He',aux:'appears to',v:'know',o:'the answer',ja:'彼は答えを知っているようだ。',note:'seem toよりフォーマル'},
+      {id:'happen_to',label:'happen to',cat:'準助動詞',s:'I',aux:'happened to',v:'meet',o:'her',m:'on the street',mt:'前置詞句',ja:'たまたま通りで彼女に会った。',note:'偶然「たまたま〜する」'},
+      {id:'turn_out',label:'turn out to',cat:'準助動詞',s:'The rumor',aux:'turned out to',v:'be',c:'true',ja:'その噂は本当だと判明した。',note:'結果的に「〜だと分かる」'},
+    ]
+  },
+  {
+    id: 'schedule', label: '予定・当然',
+    items: [
+      {id:'be_supposed',label:'be supposed to',cat:'準助動詞',s:'I',aux:'am supposed to',v:'finish',m:'by Friday',mt:'前置詞句',ja:'金曜日までに終える予定だ。',isDefault:true,note:'予定・期待「〜することになっている」'},
+      {id:'be_to',label:'be to',cat:'準助動詞',s:'The meeting',aux:'is to',v:'start',m:'at three',mt:'前置詞句',ja:'会議は3時に始まることになっている。',note:'公式な予定・運命・義務を表す硬い表現'},
+      {id:'be_about',label:'be about to',cat:'準助動詞',s:'The train',aux:'is about to',v:'leave',ja:'電車はまさに出発しようとしている。',note:'直前の未来「まさに〜しようとしている」'},
+    ]
+  },
+];
+
+var activeTypes = {};
+var prevValues = {};
+var currentGroup = 'ability';
+
+groups.forEach(function(g) {
+  var def = g.items.find(function(it){ return it.isDefault; }) || g.items[0];
+  activeTypes[g.id] = def.id;
+});
+
+// ════════════════════════════════════════
+// BUILD UI
+// ════════════════════════════════════════
+
+function buildTabs() {
+  var tabsEl = document.getElementById('tabs');
+  groups.forEach(function(g) {
+    var btn = document.createElement('button');
+    btn.className = 'tab-btn' + (g.id === currentGroup ? ' active' : '');
+    btn.textContent = g.label;
+    btn.onclick = function() {
+      currentGroup = g.id;
+      tabsEl.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.querySelectorAll('.pattern-panel').forEach(function(p){ p.classList.remove('active'); });
+      document.getElementById('panel-' + g.id).classList.add('active');
+      updateDisplay(g.id, activeTypes[g.id]);
+    };
+    tabsEl.appendChild(btn);
+  });
+}
+
+function buildPanels() {
+  var container = document.getElementById('panels');
+  groups.forEach(function(g) {
+    var panel = document.createElement('div');
+    panel.className = 'pattern-panel' + (g.id === currentGroup ? ' active' : '');
+    panel.id = 'panel-' + g.id;
+
+    var sp = document.createElement('div');
+    sp.className = 'selector-panel';
+    sp.innerHTML = '<h3>' + g.label + 'を表す助動詞</h3>';
+
+    var slot = document.createElement('div');
+    slot.className = 'slot-section';
+    slot.innerHTML = '<div class="slot-label"><span class="role-badge">助動詞</span> クリックで切り替え</div>';
+
+    var tree = document.createElement('div');
+    tree.className = 'tree';
+
+    var cats = ['法助動詞','準助動詞'];
+    cats.forEach(function(cat, ci) {
+      var items = g.items.filter(function(it){ return it.cat === cat; });
+      if (!items.length) return;
+      var isLast = ci === cats.length - 1 || g.items.filter(function(it){ return it.cat === cats[ci+1]; }).length === 0;
+
+      var row = document.createElement('div');
+      row.className = 'tree-row';
+      row.innerHTML = '<span class="tree-branch">' + (isLast ? '└─' : '├─') + '</span>'
+        + '<span class="tree-cat">' + cat + '</span>'
+        + '<span class="tree-arrow">&#9656;</span>';
+
+      var btns = document.createElement('div');
+      btns.className = 'tree-buttons';
+      items.forEach(function(it) {
+        var b = document.createElement('button');
+        b.className = 'type-btn' + (activeTypes[g.id] === it.id ? ' active' : '');
+        b.textContent = it.label;
+        b.onclick = function() {
+          activeTypes[g.id] = it.id;
+          slot.querySelectorAll('.type-btn').forEach(function(x){ x.classList.remove('active'); });
+          b.classList.add('active');
+          updateDisplay(g.id, it.id);
+        };
+        btns.appendChild(b);
+      });
+      row.appendChild(btns);
+      tree.appendChild(row);
+    });
+
+    slot.appendChild(tree);
+    sp.appendChild(slot);
+    panel.appendChild(sp);
+
+    // Tip
+    if (g.id === 'obligation') {
+      panel.insertAdjacentHTML('beforeend', '<div class="tip-box"><div class="tip-title">must vs have to の否定</div><strong>must not</strong> = 禁止「〜してはならない」<br><strong>don\'t have to</strong> = 不要「〜する必要はない」<br>否定の意味が全く異なるので注意。入試超頻出。</div>');
+    }
+    if (g.id === 'deduction') {
+      panel.insertAdjacentHTML('beforeend', '<div class="tip-box"><div class="tip-title">推量の確信度</div>must（95%）&gt; should（80%）&gt; will（70%）&gt; may（50%）&gt; might / could（30%）<br>否定の推量：can\'t（〜のはずがない）が最も強い。</div>');
+    }
+    if (g.id === 'will_future') {
+      panel.insertAdjacentHTML('beforeend', '<div class="tip-box"><div class="tip-title">will vs be going to</div><strong>will</strong>：その場の決定・単純な推測<br><strong>be going to</strong>：以前からの計画・根拠のある予測（例：空を見て「雨が降りそうだ」）</div>');
+    }
+    if (g.id === 'habit') {
+      panel.insertAdjacentHTML('beforeend', '<div class="tip-box"><div class="tip-title">used to vs would</div><strong>used to</strong>：過去の習慣＋状態の両方に使える（今はもう違う含意）<br><strong>would</strong>：過去の習慣的動作のみ（状態動詞 live, know 等には使えない）</div>');
+    }
+    if (g.id === 'ability') {
+      panel.insertAdjacentHTML('beforeend', '<div class="tip-box"><div class="tip-title">can vs be able to</div>過去の<strong>具体的な1回の達成</strong>には could ではなく <strong>was/were able to</strong> を使う。<br>例：I <strong>was able to</strong> escape from the fire.（火事から逃げることができた）<br>× I could escape … は不自然。</div>');
+    }
+
+    container.appendChild(panel);
+  });
+}
+
+// ════════════════════════════════════════
+// DISPLAY
+// ════════════════════════════════════════
+
+function wg(text, role, label, partKey) {
+  return '<span class="wg wg-' + role + '" data-p="' + partKey + '">' + text + '<span class="lb">' + label + '</span></span>';
+}
+
+function modPart(text, label, partKey) {
+  return '<span class="mod-part" data-p="' + partKey + '">(' + text + ')<span class="mod-lb">' + label + '</span></span>';
+}
+
+function updateDisplay(groupId, itemId) {
+  var g = groups.find(function(x){ return x.id === groupId; });
+  if (!g) return;
+  var item = g.items.find(function(x){ return x.id === itemId; });
+  if (!item) return;
+
+  var newValues = { s: item.s||'', aux: item.aux, v: item.v, o: item.o||'', c: item.c||'', m: item.m||'', mp: item.mp||'' };
+
+  document.getElementById('heroLabel').textContent = g.label + ' ─ ' + item.label + '（' + item.cat + '）';
+
+  var html = '';
+  var punct = item.q ? '?' : '.';
+
+  if (item.q) {
+    // Question: Aux + S + V + O/C + M
+    html += wg(item.aux, 'aux', '助動詞', 'aux') + ' ';
+    if (item.s) html += wg(item.s, 's', 'S', 's') + ' ';
+  } else {
+    // Statement: S + Aux + V + O/C + M
+    if (item.s) html += wg(item.s, 's', 'S', 's') + ' ';
+    html += wg(item.aux, 'aux', '助動詞', 'aux') + ' ';
+  }
+
+  // Pre-verb modifier (e.g. "often")
+  if (item.mp) html += modPart(item.mp, item.mpt || 'M', 'mp') + ' ';
+
+  // Main verb
+  html += wg(item.v, 'v', 'V', 'v');
+
+  // Object
+  if (item.o) html += ' ' + wg(item.o, 'o', 'O', 'o');
+
+  // Complement
+  if (item.c) html += ' ' + wg(item.c, 'c', 'C', 'c');
+
+  // Post modifier
+  if (item.m) html += ' ' + modPart(item.m, item.mt || 'M', 'm');
+
+  html += '<span style="color:var(--text)">' + punct + '</span>';
+
+  document.getElementById('heroSentence').innerHTML = html;
+  document.getElementById('heroJa').textContent = item.ja || '';
+  document.getElementById('heroNote').textContent = item.note || '';
+
+  // Animate changed parts
+  var els = document.querySelectorAll('#heroSentence [data-p]');
+  for (var i = 0; i < els.length; i++) {
+    var key = els[i].getAttribute('data-p');
+    if (!prevValues[key] || prevValues[key] !== newValues[key]) {
+      els[i].classList.add('wg-changed');
+    }
+  }
+  prevValues = newValues;
+}
+
+// ════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════
+buildTabs();
+buildPanels();
+updateDisplay(currentGroup, activeTypes[currentGroup]);
+</script>
+</body>
+</html>

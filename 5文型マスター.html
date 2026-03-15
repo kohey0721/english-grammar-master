@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>5文型マスター ─ 大学受験対策</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf7f2;
+  --bg-card: #fff;
+  --border: #e0d5c7;
+  --text: #2d2a26;
+  --text-muted: #6b6560;
+  --s-color: #1e56a0;
+  --v-color: #b91c1c;
+  --o-color: #15803d;
+  --c-color: #c2850a;
+  --accent: #1e56a0;
+  --shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.header h1 {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.header .subtitle {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.2rem 4rem;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0;
+  margin-top: 2rem;
+  border-bottom: 2px solid var(--border);
+  overflow-x: auto;
+}
+
+.tab-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 0.75rem 1.3rem;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.2s;
+}
+
+.tab-btn:hover {
+  color: var(--text);
+  background: rgba(0,0,0,0.02);
+}
+
+.tab-btn.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Sentence Hero Display */
+.hero {
+  margin-top: 2rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2.5rem 2rem;
+  text-align: left;
+  box-shadow: var(--shadow);
+}
+
+.hero .pattern-label {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.hero .sentence {
+  font-family: 'Lora', serif;
+  font-size: 1.7rem;
+  line-height: 2.8;
+  margin-bottom: 0.8rem;
+  padding-bottom: 1em;
+}
+
+/* Word group: underline + label below (inline) */
+.wg {
+  position: relative;
+  display: inline;
+  border-bottom: 2.5px solid;
+  padding-bottom: 1px;
+}
+.wg-s { color: var(--s-color); border-color: var(--s-color); }
+.wg-v { color: var(--v-color); border-color: var(--v-color); }
+.wg-o { color: var(--o-color); border-color: var(--o-color); }
+.wg-c { color: var(--c-color); border-color: var(--c-color); }
+
+/* Changed-element animation */
+.wg-changed {
+  animation: wgFade 0.8s ease;
+}
+@keyframes wgFade {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+.wg .lb {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100% + 3px);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.hero .ja {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+}
+
+.hero .note-inline {
+  font-size: 0.82rem;
+  color: #a16207;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* Selector Panel */
+.selector-panel {
+  margin-top: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 1.8rem;
+  box-shadow: var(--shadow);
+}
+
+.selector-panel h3 {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.slot-section {
+  margin-bottom: 1.2rem;
+}
+
+.slot-section:last-child { margin-bottom: 0; }
+
+.slot-label {
+  font-weight: 600;
+  font-size: 0.88rem;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.slot-label .role-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.role-badge-s { background: var(--s-color); }
+.role-badge-v { background: var(--v-color); }
+.role-badge-o { background: var(--o-color); }
+.role-badge-c { background: var(--c-color); }
+
+/* Tree hierarchy */
+.tree {
+  margin-left: 0.5rem;
+  font-size: 0.88rem;
+}
+
+.tree-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  min-height: 2.2rem;
+  padding: 0.15rem 0;
+}
+
+.tree-branch {
+  color: var(--text-muted);
+  font-family: monospace;
+  font-size: 0.9rem;
+  min-width: 1.2rem;
+  user-select: none;
+  line-height: 2.2rem;
+  flex-shrink: 0;
+}
+
+.tree-cat {
+  font-weight: 600;
+  color: var(--text-muted);
+  min-width: 3.2em;
+  flex-shrink: 0;
+  line-height: 2.2rem;
+}
+
+.tree-arrow {
+  color: var(--text-muted);
+  margin-right: 0.2rem;
+  line-height: 2.2rem;
+  flex-shrink: 0;
+}
+
+.tree-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.type-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.32rem 0.75rem;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.type-btn:hover, .type-btn:active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: #f0f4fa;
+}
+@media (hover: none) {
+  .type-btn:hover { border-color: var(--border); color: var(--text); background: var(--bg); }
+  .type-btn:active { border-color: var(--accent); color: var(--accent); background: #f0f4fa; }
+}
+
+.type-btn.active {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.vg-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--v-color);
+  background: #fef2f2;
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  margin-right: 0.1rem;
+}
+
+/* Tip boxes */
+.tip-box {
+  margin-top: 1.2rem;
+  background: #fefce8;
+  border: 1px solid #fde68a;
+  border-left: 4px solid #c2850a;
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.tip-box .tip-title {
+  font-weight: 700;
+  color: #92400e;
+  margin-bottom: 0.3rem;
+}
+
+/* Reference tables */
+.ref-section {
+  margin-top: 2.5rem;
+}
+
+.ref-section h2 {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.ref-section h3 {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.7rem;
+}
+
+.ref-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  margin-bottom: 1.2rem;
+  background: var(--bg-card);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.ref-table th {
+  background: #f5f0e8;
+  font-weight: 600;
+  text-align: left;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.ref-table td {
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid #f0ebe3;
+}
+
+.ref-table tr:last-child td { border-bottom: none; }
+
+.ref-table code {
+  font-family: 'Lora', serif;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--v-color);
+}
+
+/* Panel visibility */
+.pattern-panel { display: none; }
+.pattern-panel.active { display: block; }
+
+/* Responsive — iPhone-first */
+@media (max-width: 640px) {
+  body { padding-bottom: env(safe-area-inset-bottom, 0); }
+  .header { padding: 1.2rem 1rem; }
+  .header h1 { font-size: 1.4rem; }
+  .header .subtitle { font-size: 0.8rem; }
+  .container { padding: 0 0 3rem; }
+
+  /* Tabs: horizontal scroll, sticky below header */
+  .tabs {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    gap: 0;
+    margin-top: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 0.5rem;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.78rem;
+    flex-shrink: 0;
+    min-height: 40px;
+  }
+
+  /* Hero: sticky below tabs */
+  .hero {
+    position: sticky;
+    top: 46px;
+    z-index: 90;
+    padding: 0.8rem 1rem;
+    margin-top: 0;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .hero .sentence { font-size: 1.15rem; line-height: 2.6; padding-bottom: 0.8em; margin-bottom: 0.3rem; }
+  .hero .pattern-label { font-size: 0.82rem; margin-bottom: 0.4rem; }
+  .hero .ja { font-size: 0.82rem; }
+  .hero .note-inline { font-size: 0.76rem; }
+
+  /* Selector panel */
+  .selector-panel { padding: 0.8rem; margin-top: 0.5rem; border-radius: 0; border-left: none; border-right: none; box-shadow: none; }
+  .selector-panel h3 { font-size: 0.95rem; margin-bottom: 0.6rem; }
+
+  /* Tree: simplified for mobile */
+  .tree { margin-left: 0; }
+  .tree-row {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    min-height: auto;
+    padding: 0.25rem 0;
+  }
+  .tree-branch { display: none; }
+  .tree-arrow { display: none; }
+  .tree-cat {
+    min-width: auto;
+    font-size: 0.72rem;
+    line-height: 1;
+    background: #f0ebe3;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.15rem;
+    width: 100%;
+  }
+  .tree-buttons {
+    gap: 0.35rem;
+    width: 100%;
+    padding-left: 0.3rem;
+  }
+
+  /* Buttons: touch-friendly */
+  .type-btn {
+    font-size: 0.8rem;
+    padding: 0.45rem 0.75rem;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .vg-label { font-size: 0.65rem; padding: 0.15rem 0.35rem; }
+
+  /* Tip boxes */
+  .tip-box { padding: 0.7rem 0.8rem; font-size: 0.8rem; margin-top: 0.8rem; }
+
+  /* Ref tables */
+  .ref-section { margin-top: 1.5rem; }
+  .ref-section h2 { font-size: 1.1rem; }
+  .ref-section h3 { font-size: 0.95rem; }
+  .ref-table { font-size: 0.76rem; }
+  .ref-table th, .ref-table td { padding: 0.4rem 0.5rem; }
+
+  /* Slot labels */
+  .slot-label { font-size: 0.82rem; }
+  .role-badge { font-size: 0.68rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>5文型マスター</h1>
+  <p class="subtitle">各要素の品詞パターンを切り替えて理解する</p>
+</div>
+
+<div class="container">
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchPattern('sv')">第1文型 SV</button>
+    <button class="tab-btn" onclick="switchPattern('svc')">第2文型 SVC</button>
+    <button class="tab-btn" onclick="switchPattern('svo')">第3文型 SVO</button>
+    <button class="tab-btn" onclick="switchPattern('svoo')">第4文型 SVOO</button>
+    <button class="tab-btn" onclick="switchPattern('svoc')">第5文型 SVOC</button>
+  </div>
+
+  <!-- Hero display -->
+  <div class="hero">
+    <div class="pattern-label" id="heroLabel">第1文型 ─ SV</div>
+    <div class="sentence" id="heroSentence"></div>
+    <div class="ja" id="heroJa"></div>
+    <div class="note-inline" id="heroNote"></div>
+  </div>
+
+  <!-- ===== SV Panel ===== -->
+  <div class="pattern-panel active" id="panel-sv">
+    <div class="selector-panel">
+      <h3>主語 S の品詞を切り替える</h3>
+      <div class="slot-section">
+        <div class="slot-label"><span class="role-badge role-badge-s">S</span> 主語のバリエーション（動詞: matters）</div>
+        <div class="tree">
+          <div class="tree-row">
+            <span class="tree-branch">├─</span>
+            <span class="tree-cat">単語</span>
+            <span class="tree-arrow">&#9656;</span>
+            <div class="tree-buttons">
+              <button class="type-btn active" onclick="selectType('sv','名詞',this)">名詞</button>
+              <button class="type-btn" onclick="selectType('sv','代名詞',this)">代名詞</button>
+            </div>
+          </div>
+          <div class="tree-row">
+            <span class="tree-branch">├─</span>
+            <span class="tree-cat">句</span>
+            <span class="tree-arrow">&#9656;</span>
+            <div class="tree-buttons">
+              <button class="type-btn" onclick="selectType('sv','動名詞句',this)">動名詞句</button>
+              <button class="type-btn" onclick="selectType('sv','to不定詞句',this)">to不定詞句</button>
+            </div>
+          </div>
+          <div class="tree-row">
+            <span class="tree-branch">└─</span>
+            <span class="tree-cat">節</span>
+            <span class="tree-arrow">&#9656;</span>
+            <div class="tree-buttons">
+              <button class="type-btn" onclick="selectType('sv','that節',this)">that節</button>
+              <button class="type-btn" onclick="selectType('sv','wh節',this)">wh節</button>
+              <button class="type-btn" onclick="selectType('sv','whether節',this)">whether節</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tip-box">
+      <div class="tip-title">Tip: 第1文型のポイント</div>
+      SV文型は「主語が〜する」という最もシンプルな構造です。主語には名詞だけでなく、動名詞句・to不定詞句・that節・wh節なども使えます。<br>
+      形式主語 <strong>It</strong> を使って <em>It matters that he studies hard.</em> のように書き換えることもできます。
+    </div>
+  </div>
+
+  <!-- ===== SVC Panel ===== -->
+  <div class="pattern-panel" id="panel-svc">
+    <div class="selector-panel">
+      <h3>補語 C の品詞を切り替える</h3>
+      <div class="slot-section">
+        <div class="slot-label"><span class="role-badge role-badge-c">C</span> 補語のバリエーション（His goal is ___）</div>
+        <div class="tree">
+          <div class="tree-row">
+            <span class="tree-branch">├─</span>
+            <span class="tree-cat">単語</span>
+            <span class="tree-arrow">&#9656;</span>
+            <div class="tree-buttons">
+              <button class="type-btn" onclick="selectType('svc','名詞',this)">名詞</button>
+              <button class="type-btn active" onclick="selectType('svc','形容詞',this)">形容詞</button>
+              <button class="type-btn" onclick="selectType('svc','現在分詞',this)">現在分詞</button>
+              <button class="type-btn" onclick="selectType('svc','過去分詞',this)">過去分詞</button>
+            </div>
+          </div>
+          <div class="tree-row">
+            <span class="tree-branch">├─</span>
+            <span class="tree-cat">句</span>
+            <span class="tree-arrow">&#9656;</span>
+            <div class="tree-buttons">
+              <button class="type-btn" onclick="selectType('svc','to不定詞句',this)">to不定詞句</button>
+              <button class="type-btn" onclick="selectType('svc','動名詞句',this)">動名詞句</button>
+              <button class="type-btn" onclick="selectType('svc','前置詞句',this)">前置詞句</button>
+            </div>
+          </div>
+          <div class="tree-row">
+            <span class="tree-branch">└─</span>
+            <span class="tree-cat">節</span>
+            <span class="tree-arrow">&#9656;</span>
+            <div class="tree-buttons">
+              <button class="type-btn" onclick="selectType('svc','that節',this)">that節</button>
+              <button class="type-btn" onclick="selectType('svc','wh節',this)">wh節</button>
+              <button class="type-btn" onclick="selectType('svc','whether節',this)">whether節</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tip-box">
+      <div class="tip-title">Tip: S = C の関係</div>
+      第2文型では <strong>S = C</strong>（主語＝補語）の関係が成り立ちます。「His goal = clear」のように、補語が主語の状態・性質を説明します。<br>
+      be動詞以外にも become, seem, look, remain など多くのSVC動詞があります（下の参照表を確認）。
+    </div>
+  </div>
+
+  <!-- ===== SVO Panel ===== -->
+  <div class="pattern-panel" id="panel-svo">
+    <div class="selector-panel">
+      <h3>目的語 O の品詞を切り替える</h3>
+
+      <div class="slot-section">
+        <div class="slot-label"><span class="role-badge role-badge-o">O</span> 目的語のバリエーション（I remember ___）</div>
+        <div class="tree">
+          <div class="tree-row">
+            <span class="tree-branch">├─</span>
+            <span class="tree-cat">単語</span>
+            <span class="tree-arrow">&#9656;</span>
+            <div class="tree-buttons">
+              <button class="type-btn active" onclick="selectType('svo-o','名詞',this)">名詞</button>
+              <button class="type-btn" onclick="selectType('svo-o','代名詞',this)">代名詞</button>
+            </div>
+          </div>
+          <div class="tree-row">
+            <span class="tree-branch">├─</span>
+            <span class="tree-cat">句</span>
+            <span class="tree-arrow">&#9656;</span>
+            <div class="tree-buttons">
+              <button class="type-btn" onclick="selectType('svo-o','動名詞句',this)">動名詞句</button>
+              <button class="type-btn" onclick="selectType('svo-o','to不定詞句',this)">to不定詞句</button>
+            </div>
+          </div>
+          <div class="tree-row">
+            <span class="tree-branch">└─</span>
+            <span class="tree-cat">節</span>
+            <span class="tree-arrow">&#9656;</span>
+            <div class="tree-buttons">
+              <button class="type-btn" onclick="selectType('svo-o','that節',this)">that節</button>
+              <button class="type-btn" onclick="selectType('svo-o','wh節',this)">wh節</button>
+              <button class="type-btn" onclick="selectType('svo-o','間接疑問文',this)">間接疑問文</button>
+              <button class="type-btn" onclick="selectType('svo-o','whether/if節',this)">whether/if節</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tip-box">
+      <div class="tip-title">Tip: SVO の目的語</div>
+      第3文型の目的語には名詞・代名詞のほか、動名詞句・to不定詞句・that節・wh節なども置けます。<br>
+      <strong>remember + 動名詞</strong>（過去の記憶）と <strong>remember + to不定詞</strong>（未来の予定）の意味の違いに注意しましょう。<br>
+      ※ 主語(S)のバリエーションは第1文型(SV)と同じです。そちらで確認してください。
+    </div>
+  </div>
+
+  <!-- ===== SVOO Panel ===== -->
+  <div class="pattern-panel" id="panel-svoo">
+    <div class="selector-panel">
+      <h3>間接目的語 O2 の品詞を切り替える</h3>
+      <div class="slot-section">
+        <div class="slot-label"><span class="role-badge role-badge-o">O2</span> 直接目的語のバリエーション（She told me ___）</div>
+        <div class="tree">
+          <div class="tree-row">
+            <span class="tree-branch">├─</span>
+            <span class="tree-cat">単語</span>
+            <span class="tree-arrow">&#9656;</span>
+            <div class="tree-buttons">
+              <button class="type-btn active" onclick="selectType('svoo','名詞',this)">名詞</button>
+            </div>
+          </div>
+          <div class="tree-row">
+            <span class="tree-branch">├─</span>
+            <span class="tree-cat">句</span>
+            <span class="tree-arrow">&#9656;</span>
+            <div class="tree-buttons">
+              <button class="type-btn" onclick="selectType('svoo','間接疑問文',this)">間接疑問文</button>
+            </div>
+          </div>
+          <div class="tree-row">
+            <span class="tree-branch">└─</span>
+            <span class="tree-cat">節</span>
+            <span class="tree-arrow">&#9656;</span>
+            <div class="tree-buttons">
+              <button class="type-btn" onclick="selectType('svoo','that節',this)">that節</button>
+              <button class="type-btn" onclick="selectType('svoo','wh節',this)">wh節</button>
+              <button class="type-btn" onclick="selectType('svoo','whether節',this)">whether節</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tip-box">
+      <div class="tip-title">Tip: SVOO → SVO への書き換え</div>
+      SVOO文型は前置詞を使ってSVOに書き換えられます：<br>
+      ・<strong>to</strong>: give, tell, show, teach, send, lend, write など（到達点）<br>
+      ・<strong>for</strong>: buy, make, cook, find, get など（利益）<br>
+      ・<strong>of</strong>: ask（依頼）<br>
+      例: She told me the truth. → She told the truth <strong>to</strong> me.
+    </div>
+  </div>
+
+  <!-- ===== SVOC Panel ===== -->
+  <div class="pattern-panel" id="panel-svoc">
+    <div class="selector-panel">
+      <h3>補語 C の品詞を切り替える（動詞グループ別）</h3>
+      <div class="slot-section">
+        <div class="slot-label"><span class="role-badge role-badge-c">C</span> 目的格補語のバリエーション</div>
+        <div class="tree">
+          <div class="tree-row">
+            <span class="tree-branch">├─</span>
+            <span class="tree-cat">単語</span>
+            <span class="tree-arrow">&#9656;</span>
+            <div class="tree-buttons">
+              <span class="vg-label">make</span>
+              <button class="type-btn" onclick="selectType('svoc','make-名詞C',this)">名詞C</button>
+              <button class="type-btn active" onclick="selectType('svoc','make-形容詞C',this)">形容詞C</button>
+              <span class="vg-label" style="margin-left:0.5rem">find</span>
+              <button class="type-btn" onclick="selectType('svoc','find-形容詞C',this)">形容詞C</button>
+              <span class="vg-label" style="margin-left:0.5rem">keep</span>
+              <button class="type-btn" onclick="selectType('svoc','keep-形容詞C',this)">形容詞C</button>
+            </div>
+          </div>
+          <div class="tree-row">
+            <span class="tree-branch">├─</span>
+            <span class="tree-cat">句</span>
+            <span class="tree-arrow">&#9656;</span>
+            <div class="tree-buttons" style="flex-wrap:wrap;gap:0.35rem;">
+              <span class="vg-label">make</span>
+              <button class="type-btn" onclick="selectType('svoc','make-原形不定詞C',this)">原形不定詞C</button>
+              <span class="vg-label" style="margin-left:0.5rem">let</span>
+              <button class="type-btn" onclick="selectType('svoc','let-原形不定詞C',this)">原形不定詞C</button>
+              <span class="vg-label" style="margin-left:0.5rem">have</span>
+              <button class="type-btn" onclick="selectType('svoc','have-原形不定詞C',this)">原形不定詞C</button>
+              <button class="type-btn" onclick="selectType('svoc','have-過去分詞C',this)">過去分詞C</button>
+              <span class="vg-label" style="margin-left:0.5rem">get</span>
+              <button class="type-btn" onclick="selectType('svoc','get-to不定詞C',this)">to不定詞C</button>
+            </div>
+          </div>
+          <div class="tree-row">
+            <span class="tree-branch">├─</span>
+            <span class="tree-cat">句</span>
+            <span class="tree-arrow">&#9656;</span>
+            <div class="tree-buttons" style="flex-wrap:wrap;gap:0.35rem;">
+              <span class="vg-label">see</span>
+              <button class="type-btn" onclick="selectType('svoc','see-原形不定詞C',this)">原形不定詞C</button>
+              <button class="type-btn" onclick="selectType('svoc','see-現在分詞C',this)">現在分詞C</button>
+              <button class="type-btn" onclick="selectType('svoc','see-過去分詞C',this)">過去分詞C</button>
+              <span class="vg-label" style="margin-left:0.5rem">keep</span>
+              <button class="type-btn" onclick="selectType('svoc','keep-現在分詞C',this)">現在分詞C</button>
+            </div>
+          </div>
+          <div class="tree-row">
+            <span class="tree-branch">└─</span>
+            <span class="tree-cat">句</span>
+            <span class="tree-arrow">&#9656;</span>
+            <div class="tree-buttons">
+              <span class="vg-label">want</span>
+              <button class="type-btn" onclick="selectType('svoc','want-to不定詞C',this)">to不定詞C</button>
+              <span class="vg-label" style="margin-left:0.5rem">tell</span>
+              <button class="type-btn" onclick="selectType('svoc','tell-to不定詞C',this)">to不定詞C</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tip-box">
+      <div class="tip-title">Tip: O = C の関係</div>
+      第5文型では <strong>O = C</strong> または <strong>O が C する</strong> の関係が成り立ちます。<br>
+      「him = happy」「him → study」のように、補語が目的語の状態・動作を説明します。<br>
+      <strong>get</strong> だけは原形不定詞ではなく <strong>to不定詞</strong> を取ることに注意！
+    </div>
+  </div>
+
+  <!-- ===== Reference Section ===== -->
+  <div class="ref-section">
+    <h2>参照表</h2>
+
+    <h3>1. SVC動詞一覧</h3>
+    <table class="ref-table">
+      <tr><th>意味</th><th>動詞</th></tr>
+      <tr><td>〜である</td><td><code>be</code></td></tr>
+      <tr><td>〜になる</td><td><code>become / get / grow / turn</code></td></tr>
+      <tr><td>〜のまま</td><td><code>remain / stay / keep</code></td></tr>
+      <tr><td>〜に見える・感じる</td><td><code>seem / appear / look / feel / sound / taste / smell</code></td></tr>
+      <tr><td>〜と判明する</td><td><code>prove / turn out</code></td></tr>
+    </table>
+
+    <h3>2. SVOO → SVO 書き換え（前置詞）</h3>
+    <table class="ref-table">
+      <tr><th>前置詞</th><th>意味</th><th>動詞例</th></tr>
+      <tr><td><code>to</code></td><td>到達点（相手に届く）</td><td>give, tell, show, teach, send, lend, write, pass</td></tr>
+      <tr><td><code>for</code></td><td>利益（相手のために）</td><td>buy, make, cook, find, get, choose</td></tr>
+      <tr><td><code>of</code></td><td>依頼</td><td>ask</td></tr>
+    </table>
+
+    <h3>3. SVOC 使役動詞のCパターン</h3>
+    <table class="ref-table">
+      <tr><th>動詞</th><th>補語の形</th><th>ニュアンス</th><th>例文</th></tr>
+      <tr><td><code>make</code></td><td>原形不定詞</td><td>強制（〜させる）</td><td>She made him study.</td></tr>
+      <tr><td><code>let</code></td><td>原形不定詞</td><td>許可（〜させてやる）</td><td>She let him go.</td></tr>
+      <tr><td><code>have</code></td><td>原形不定詞</td><td>依頼（〜してもらう）</td><td>She had him carry the bags.</td></tr>
+      <tr><td><code>have</code></td><td>過去分詞</td><td>完了・被害（〜される/してもらう）</td><td>She had her hair cut.</td></tr>
+      <tr><td><code>get</code></td><td><strong>to不定詞</strong></td><td>説得（〜させる）</td><td>She got him to study.</td></tr>
+    </table>
+
+    <h3>4. SVOC 知覚動詞の3パターン</h3>
+    <table class="ref-table">
+      <tr><th>補語の形</th><th>意味</th><th>例文</th></tr>
+      <tr><td>原形不定詞</td><td>動作の全体を知覚</td><td>I saw him <strong>cross</strong> the street.</td></tr>
+      <tr><td>現在分詞</td><td>動作の進行中を知覚</td><td>I saw him <strong>crossing</strong> the street.</td></tr>
+      <tr><td>過去分詞</td><td>受動の状態を知覚</td><td>I saw him <strong>hit</strong> by a car.</td></tr>
+    </table>
+
+    <h3>5. 受動態での変化</h3>
+    <div class="tip-box" style="margin-top:0.5rem;">
+      <div class="tip-title">原形不定詞 → to不定詞</div>
+      使役動詞・知覚動詞のSVOCを受動態にすると、原形不定詞が <strong>to不定詞</strong> に変わります：<br>
+      ・She <strong>made</strong> him study. → He was <strong>made to study</strong> by her.<br>
+      ・I <strong>saw</strong> him cross the street. → He was <strong>seen to cross</strong> the street.<br>
+      ※ let は受動態にできません（be allowed to を使う）。
+    </div>
+
+    <h3>6. 句 vs 節 分類表</h3>
+    <table class="ref-table">
+      <tr><th>分類</th><th>定義</th><th>例</th><th>含むもの</th></tr>
+      <tr><td><strong>句（Phrase）</strong></td><td>S+Vを含まない語のまとまり</td><td>playing tennis</td><td>名詞句, 動名詞句, to不定詞句, 前置詞句, 分詞句</td></tr>
+      <tr><td><strong>節（Clause）</strong></td><td>S+Vを含む語のまとまり</td><td>that he was kind</td><td>that節, wh節, whether節, if節, 関係詞節, 副詞節</td></tr>
+    </table>
+    <div class="tip-box" style="margin-top:0.5rem;">
+      <div class="tip-title">句と節の見分け方</div>
+      迷ったら「そのかたまりの中にS+V（主語＋動詞）があるか？」で判断。<br>
+      ・<strong>playing tennis</strong> → S+Vなし → <strong>句</strong>（動名詞句）<br>
+      ・<strong>that he was kind</strong> → he(S) + was(V) あり → <strong>節</strong>（that節）
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ===== DATA =====
+const data = {
+  sv: {
+    label: '第1文型 ─ SV',
+    types: {
+      '名詞':       { s: 'The result', v: 'matters', ja: '結果は重要だ。' },
+      '代名詞':     { s: 'It', v: 'matters', ja: 'それは重要だ。' },
+      '動名詞句':   { s: 'Studying every day', v: 'matters', ja: '毎日勉強することは重要だ。' },
+      'to不定詞句': { s: 'To study every day', v: 'matters', ja: '毎日勉強することは重要だ。' },
+      'that節':     { s: 'That he studies hard', v: 'matters', ja: '彼が一生懸命勉強することは重要だ。' },
+      'wh節':       { s: 'What you do', v: 'matters', ja: 'あなたが何をするかが重要だ。' },
+      'whether節':  { s: 'Whether he comes', v: 'matters', ja: '彼が来るかどうかは重要だ。' }
+    },
+    default: '名詞'
+  },
+  svc: {
+    label: '第2文型 ─ SVC',
+    types: {
+      '名詞':       { s: 'His goal', v: 'is', c: 'success', ja: '彼の目標は成功だ。' },
+      '形容詞':     { s: 'His goal', v: 'is', c: 'clear', ja: '彼の目標は明確だ。' },
+      '現在分詞':   { s: 'His goal', v: 'is', c: 'inspiring', ja: '彼の目標は感動的だ。' },
+      '過去分詞':   { s: 'His goal', v: 'is', c: 'accomplished', ja: '彼の目標は達成された。' },
+      'to不定詞句': { s: 'His goal', v: 'is', c: 'to pass the entrance exam', ja: '彼の目標は入試に合格することだ。' },
+      '動名詞句':   { s: 'His goal', v: 'is', c: 'passing the entrance exam', ja: '彼の目標は入試に合格することだ。' },
+      '前置詞句':   { s: 'His goal', v: 'is', c: 'of great importance', ja: '彼の目標はとても重要だ。' },
+      'that節':     { s: 'His goal', v: 'is', c: 'that everyone passes the exam', ja: '彼の目標は全員が試験に合格することだ。' },
+      'wh節':       { s: 'His goal', v: 'is', c: 'what really matters', ja: '彼の目標は本当に大切なことだ。' },
+      'whether節':  { s: 'His goal', v: 'is', c: 'whether to go abroad or stay', ja: '彼の目標は留学するか残るかだ。' }
+    },
+    default: '形容詞'
+  },
+  'svo-o': {
+    label: '第3文型 ─ SVO（目的語バリエーション）',
+    types: {
+      '名詞':         { s: 'I', v: 'remember', o: 'the event', ja: '私はその出来事を覚えている。' },
+      '代名詞':       { s: 'I', v: 'remember', o: 'it', ja: '私はそれを覚えている。' },
+      '動名詞句':     { s: 'I', v: 'remember', o: 'playing tennis', ja: '私はテニスをしたことを覚えている。', note: 'remember + 動名詞 = 過去の記憶' },
+      'to不定詞句':   { s: 'I', v: 'remember', o: 'to lock the door', ja: '私は忘れずにドアに鍵をかける。', note: 'remember + to不定詞 = 未来の予定（忘れずに〜する）' },
+      'that節':       { s: 'I', v: 'remember', o: 'that he was kind', ja: '私は彼が親切だったことを覚えている。' },
+      'wh節':         { s: 'I', v: 'remember', o: 'what he said', ja: '私は彼が言ったことを覚えている。' },
+      '間接疑問文':   { s: 'I', v: 'remember', o: 'where he lives', ja: '私は彼がどこに住んでいるか覚えている。' },
+      'whether/if節': { s: 'I', v: 'remember', o: 'whether he came', ja: '私は彼が来たかどうか覚えている。' }
+    },
+    default: '名詞'
+  },
+  svoo: {
+    label: '第4文型 ─ SVOO',
+    types: {
+      '名詞':       { s: 'She', v: 'told', o1: 'me', o2: 'the truth', ja: '彼女は私に真実を伝えた。' },
+      'that節':     { s: 'She', v: 'told', o1: 'me', o2: 'that he was coming', ja: '彼女は私に彼が来ると伝えた。' },
+      'wh節':       { s: 'She', v: 'told', o1: 'me', o2: 'what happened', ja: '彼女は私に何が起きたか伝えた。' },
+      '間接疑問文': { s: 'She', v: 'told', o1: 'me', o2: 'where to go', ja: '彼女は私にどこに行くべきか伝えた。' },
+      'whether節':  { s: 'She', v: 'told', o1: 'me', o2: 'whether to accept the offer', ja: '彼女は私にその申し出を受けるべきか伝えた。' }
+    },
+    default: '名詞'
+  },
+  svoc: {
+    label: '第5文型 ─ SVOC',
+    types: {
+      'make-名詞C':       { s: 'She', v: 'made', o: 'him', c: 'captain', ja: '彼女は彼をキャプテンにした。' },
+      'make-形容詞C':     { s: 'She', v: 'made', o: 'him', c: 'happy', ja: '彼女は彼を幸せにした。' },
+      'make-原形不定詞C': { s: 'She', v: 'made', o: 'him', c: 'study', ja: '彼女は彼に勉強させた。', note: '使役動詞 make + O + 原形不定詞（強制）' },
+      'let-原形不定詞C':  { s: 'She', v: 'let', o: 'him', c: 'go', ja: '彼女は彼を行かせた。', note: '使役動詞 let + O + 原形不定詞（許可）' },
+      'have-原形不定詞C': { s: 'She', v: 'had', o: 'him', c: 'carry the bags', ja: '彼女は彼に荷物を運んでもらった。', note: '使役動詞 have + O + 原形不定詞（依頼）' },
+      'have-過去分詞C':   { s: 'She', v: 'had', o: 'her hair', c: 'cut', ja: '彼女は髪を切ってもらった。', note: 'have + O + 過去分詞（完了・被害・依頼）' },
+      'get-to不定詞C':    { s: 'She', v: 'got', o: 'him', c: 'to study', ja: '彼女は彼に勉強させた。', note: 'get は原形不定詞ではなく to不定詞を取る！' },
+      'see-原形不定詞C':  { s: 'I', v: 'saw', o: 'him', c: 'cross the street', ja: '私は彼が通りを渡るのを見た。', note: '知覚動詞 + 原形不定詞 = 動作全体' },
+      'see-現在分詞C':    { s: 'I', v: 'saw', o: 'him', c: 'crossing the street', ja: '私は彼が通りを渡っているのを見た。', note: '知覚動詞 + 現在分詞 = 動作の途中' },
+      'see-過去分詞C':    { s: 'I', v: 'saw', o: 'him', c: 'hit by a car', ja: '私は彼が車にはねられるのを見た。', note: '知覚動詞 + 過去分詞 = 受動' },
+      'find-形容詞C':     { s: 'I', v: 'found', o: 'him', c: 'honest', ja: '私は彼が正直だとわかった。' },
+      'keep-形容詞C':     { s: 'She', v: 'kept', o: 'him', c: 'calm', ja: '彼女は彼を落ち着かせた。' },
+      'keep-現在分詞C':   { s: 'She', v: 'kept', o: 'him', c: 'waiting', ja: '彼女は彼を待たせた。' },
+      'want-to不定詞C':   { s: 'She', v: 'wants', o: 'him', c: 'to come', ja: '彼女は彼に来てほしい。' },
+      'tell-to不定詞C':   { s: 'She', v: 'told', o: 'him', c: 'to study harder', ja: '彼女は彼にもっと勉強するよう言った。' }
+    },
+    default: 'make-形容詞C'
+  }
+};
+
+// Track current active type per group
+const activeTypes = {
+  'sv': '名詞',
+  'svc': '形容詞',
+  'svo-o': '名詞',
+  'svoo': '名詞',
+  'svoc': 'make-形容詞C'
+};
+
+let currentPattern = 'sv';
+
+function wg(text, role, label, partKey) {
+  return '<span class="wg wg-' + role + '" data-p="' + partKey + '">' + text + '<span class="lb">' + label + '</span></span>';
+}
+
+function buildSentenceHTML(group, typeName) {
+  var d = data[group];
+  if (!d) return '';
+  var item = d.types[typeName];
+  if (!item) return '';
+
+  var html = '';
+  html += wg(item.s, 's', 'S', 's') + ' ';
+  html += wg(item.v, 'v', 'V', 'v');
+
+  if (item.o1 !== undefined) {
+    html += ' ' + wg(item.o1, 'o', 'O\u2081', 'o1');
+  }
+  if (item.o !== undefined) {
+    html += ' ' + wg(item.o, 'o', 'O', 'o');
+  }
+  if (item.o2 !== undefined) {
+    html += ' ' + wg(item.o2, 'o', 'O\u2082', 'o2');
+  }
+  if (item.c !== undefined) {
+    html += ' ' + wg(item.c, 'c', 'C', 'c');
+  }
+
+  html += '<span style="color:var(--text)">.</span>';
+  return html;
+}
+
+var prevValues = {};
+
+function updateDisplay(group, typeName) {
+  var d = data[group];
+  if (!d) return;
+  var item = d.types[typeName];
+  if (!item) return;
+
+  // Collect new values for diff
+  var newValues = { s: item.s, v: item.v };
+  if (item.o !== undefined) newValues.o = item.o;
+  if (item.o1 !== undefined) newValues.o1 = item.o1;
+  if (item.o2 !== undefined) newValues.o2 = item.o2;
+  if (item.c !== undefined) newValues.c = item.c;
+
+  document.getElementById('heroLabel').textContent = d.label;
+  document.getElementById('heroSentence').innerHTML = buildSentenceHTML(group, typeName);
+  document.getElementById('heroJa').textContent = item.ja || '';
+  document.getElementById('heroNote').textContent = item.note || '';
+
+  // Animate only changed parts
+  var wgs = document.querySelectorAll('#heroSentence .wg');
+  for (var i = 0; i < wgs.length; i++) {
+    var key = wgs[i].getAttribute('data-p');
+    if (!prevValues[key] || prevValues[key] !== newValues[key]) {
+      wgs[i].classList.add('wg-changed');
+    }
+  }
+
+  prevValues = newValues;
+}
+
+function selectType(group, typeName, btn) {
+  activeTypes[group] = typeName;
+
+  // Deactivate sibling buttons in the same slot-section
+  const section = btn.closest('.slot-section');
+  if (section) {
+    section.querySelectorAll('.type-btn').forEach(function(b) { b.classList.remove('active'); });
+  }
+  btn.classList.add('active');
+
+  updateDisplay(group, typeName);
+}
+
+function switchPattern(pattern) {
+  currentPattern = pattern;
+
+  // Update tabs
+  document.querySelectorAll('.tab-btn').forEach(function(t) { t.classList.remove('active'); });
+  var tabNames = ['sv','svc','svo','svoo','svoc'];
+  var idx = tabNames.indexOf(pattern);
+  document.querySelectorAll('.tab-btn')[idx].classList.add('active');
+
+  // Show/hide panels
+  document.querySelectorAll('.pattern-panel').forEach(function(p) { p.classList.remove('active'); });
+  document.getElementById('panel-' + pattern).classList.add('active');
+
+  // Update hero display
+  var group = pattern;
+  if (pattern === 'svo') {
+    group = 'svo-o';
+  }
+  var typeName = activeTypes[group];
+  updateDisplay(group, typeName);
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', function() {
+  updateDisplay('sv', '名詞');
+});
+</script>
+
+</body>
+</html>
